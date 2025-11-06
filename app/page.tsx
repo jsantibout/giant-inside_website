@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Button from '@/components/ui/Button';
 import ProductCard from '@/components/ui/ProductCard';
+import Image from 'next/image';
 import { Target, Heart, Brain, Users } from 'lucide-react';
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center bg-black text-white">
+        <section className="relative min-h-screen flex items-start justify-center bg-black text-white pt-4 md:pt-6">
           {/* Background overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"></div>
 
@@ -18,15 +19,16 @@ export default function Home() {
           <div className="absolute inset-0 bg-charcoal opacity-80"></div>
 
           {/* Content */}
-          <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
+          <div className="relative z-20 text-center px-4 max-w-5xl">
+            <Image src="/images/gi-arc.png" alt="Giant Inside" width={500} height={500} className="mb-6 ml-8 md:ml-12" />
             <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow">
               GIANT INSIDE
             </h1>
             <p className="font-montserrat text-xl md:text-2xl lg:text-3xl text-gold mb-10">
               Built for those who rise after every setback
             </p>
-            <Button href="/shop" variant="primary" className="text-lg px-12 py-4">
-              SHOP NOW
+            <Button href="/shop" variant="tertiary" className="text-lg px-12 py-4">
+              EXPLORE THE BRAND
             </Button>
           </div>
         </section>
@@ -42,17 +44,14 @@ export default function Home() {
 
               {/* Text Content */}
               <div>
-                <h2 className="font-bebas text-4xl md:text-5xl mb-6">THE GIANT INSIDE</h2>
+                <h2 className="font-bebas text-4xl md:text-5xl mb-6">RISE, BELIEVE, BECOME</h2>
                 <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
                   <p>
-                    Every champion has a moment where they wanted to quit. Every leader has faced
-                    rejection. Every success story begins with struggle.
+                    More than apparel — it's a movement built on faith, resilience, and mental strength.
                   </p>
                   <p>
-                    Giant Inside was born from the belief that greatness isn't measured by the number
-                    of times you fall—it's defined by your refusal to stay down. We create apparel for
-                    the fighters, the believers, the ones who know that setbacks are just setups for
-                    something greater.
+                    Created to remind you that real power starts within.
+                    Wear your strength. Live your faith. Find your Giant Inside.
                   </p>
                   <p>
                     This isn't just clothing. It's a reminder that you have a giant inside—a force that's
@@ -60,7 +59,7 @@ export default function Home() {
                     When you wear Giant Inside, you're declaring to the world: "I refuse to quit."
                   </p>
                 </div>
-                <blockquote className="font-bebas text-2xl md:text-3xl text-green-forest mt-8 italic">
+                <blockquote className="font-bebas text-2xl md:text-3xl  mt-8 italic">
                   "Every setback is a setup for a comeback"
                 </blockquote>
               </div>
@@ -153,7 +152,7 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-gray-200 mb-8">
               Gear for those who refuse to quit
             </p>
-            <Button href="/shop" variant="primary" className="text-lg px-12 py-4">
+            <Button href="/shop" variant="tertiary" className="text-lg px-12 py-4">
               EXPLORE COLLECTION
             </Button>
           </div>

@@ -39,23 +39,44 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
                   <p>
-                    Every great brand starts with a personal story. Giant Inside was founded by someone
-                    who knows what it means to face adversity and choose to rise anyway.
+                    Giant Inside is a faith-driven apparel brand empowering people to overcome adversity,
+                    raise mental health awareness, and live with resilience.
                   </p>
                   <p>
-                    Through personal struggles, athletic challenges, and life's inevitable setbacks, the
-                    vision for Giant Inside was born—a brand that doesn't just sell apparel, but inspires
-                    a movement of resilience.
+                    I come from the world of football, from junior college to the NAIA level, where pain, 
+                    pressure, and performance were part of daily life. By the time I was 25, 
+                    I'd already been through two back surgeries linked to a congenital condition, dropped out of college, 
+                    and turned to alcohol and cannabis to numb what I didn't want to face.
                   </p>
                   <p>
-                    The journey wasn't easy. There were moments of doubt, times of questioning, and seasons
-                    of struggle. But through faith, determination, and an unwavering belief in something
-                    greater, Giant Inside emerged as more than just an idea—it became a mission.
+                    But rock bottom revealed something greater.
                   </p>
                   <p>
-                    This brand exists to remind every person that no matter how many times life knocks you
-                    down, you have a giant inside you—a force powerful enough to overcome any obstacle.
+                    I decided to live for something bigger than myself. I committed to rebuilding, healing, and becoming the best version of the person I was meant to be.
                   </p>
+                  <p>
+                    That's where Giant Inside was born.
+                  </p>
+                  <p>
+                    This brand represents the fight to keep going when everything around you tells you to quit. 
+                    It's about believing again in yourself, in your purpose, in your faith. Every piece we design 
+                    is a reminder that your greatest power lives within. Faith fuels it. Resilience builds it. 
+                    Mental health awareness gives it honesty.
+                  </p>
+                  <p>
+                    Giant Inside isn’t just for athletes, it’s for anyone who’s ever faced a battle, visible or invisible, and decided to rise again.
+                  </p>
+                  <p>
+                    Because this isn’t about the game, it’s about the fight.
+                  </p>
+                  <p>
+                    It’s about life.                   
+                  </p>
+
+                  <p>
+                    Wear your strength. Live your faith. Find your Giant Inside.
+                  </p>
+                
                 </div>
               </div>
             </div>
