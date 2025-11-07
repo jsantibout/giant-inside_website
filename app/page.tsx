@@ -20,13 +20,13 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative z-20 text-center px-4 max-w-5xl">
-            <Image src="/images/gi-arc.png" alt="Giant Inside" width={500} height={500} className="mb-6 ml-8 md:ml-12" />
-            <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow">
+            <Image src="/images/giant-inside_logo.png" alt="Giant Inside" width={500} height={500} className="mb-6 ml-8 md:ml-12" />
+            {/* <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow">
               GIANT INSIDE
-            </h1>
-            <p className="font-montserrat text-xl md:text-2xl lg:text-3xl text-gold mb-10">
+            </h1> */}
+            <h1 className="font-montserrat text-2xl md:text-3xl lg:text-4xl text-gold mb-10">
               Built for those who rise after every setback
-            </p>
+            </h1>
             <Button href="/shop" variant="tertiary" className="text-lg px-12 py-4">
               EXPLORE THE BRAND
             </Button>
