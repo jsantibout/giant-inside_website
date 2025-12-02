@@ -17,8 +17,11 @@ export default function ShopPage() {
       <main>
         {/* Hero Banner */}
         <section className="relative h-80 bg-black text-white flex items-center justify-center">
+          {/* Background overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"></div>
+          {/* Placeholder background image effect */}
           <div className="absolute inset-0 bg-charcoal opacity-80"></div>
-          <div className="relative z-10 text-center">
+          <div className="relative z-20 text-center">
             <h1 className="font-bebas text-5xl md:text-6xl lg:text-7xl text-shadow">
               SHOP THE COLLECTION
             </h1>
