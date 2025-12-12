@@ -24,7 +24,8 @@ export default function ContactForm({ formType = 'contact' }: ContactFormProps) 
         : process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM;
 
       if (!formspreeId) {
-        console.log('Form data:', Object.fromEntries(data));
+        // In development, simulate successful submission
+        // In production, this shouldn't happen if env vars are properly set
         setStatus('success');
         form.reset();
         return;

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import CartIcon from './shopify/CartIcon';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -58,16 +59,21 @@ export default function Header() {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
+            {/* Cart Icon */}
+            <CartIcon />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 rounded-sm hover:bg-charcoal transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button & Cart Icon */}
+          <div className="md:hidden flex items-center gap-2">
+            <CartIcon />
+            <button
+              className="p-2 rounded-sm hover:bg-charcoal transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
