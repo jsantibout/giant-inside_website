@@ -52,15 +52,58 @@ async function shopifyFetch<T>({
       ...(tags && { next: { tags } }),
     });
 
-    if (!response.ok) {
-      throw new Error(`Shopify API error: ${response.statusText}`);
+    // Try to parse response body (may fail for non-JSON error responses)
+    let json: ShopifyResponse<T> | null = null;
+    try {
+      json = await response.json();
+    } catch (parseError) {
+      // If JSON parsing fails, we'll handle it below
     }
 
-    const json: ShopifyResponse<T> = await response.json();
+    // Check for HTTP errors first
+    if (!response.ok) {
+      const statusCode = response.status;
+      let errorMessage = `Shopify API error: ${response.statusText} (${statusCode})`;
+      
+      // Provide specific guidance for authentication errors
+      if (statusCode === 401 || statusCode === 403) {
+        errorMessage += '\n\n🔐 Authentication Error:\n';
+        errorMessage += 'This usually means:\n';
+        errorMessage += '1. Your SHOPIFY_STOREFRONT_API_TOKEN is missing or incorrect\n';
+        errorMessage += '2. The token has been revoked or expired\n';
+        errorMessage += '3. The token doesn\'t have the required permissions\n';
+        errorMessage += '4. Your SHOPIFY_STORE_DOMAIN is incorrect\n\n';
+        errorMessage += 'Please check your .env.local file and verify:\n';
+        errorMessage += `- SHOPIFY_STORE_DOMAIN=${env.SHOPIFY_STORE_DOMAIN ? '✓ Set' : '✗ Missing'}\n`;
+        errorMessage += `- SHOPIFY_STOREFRONT_API_TOKEN=${env.SHOPIFY_STOREFRONT_API_TOKEN ? '✓ Set (length: ' + env.SHOPIFY_STOREFRONT_API_TOKEN.length + ')' : '✗ Missing'}\n`;
+        errorMessage += `- API URL: ${graphqlUrl}\n`;
+        errorMessage += '\nSee SHOPIFY_SETUP.md for instructions on creating a Storefront API token.';
+      }
+      
+      // Include GraphQL errors if present and JSON was parsed successfully
+      if (json && json.errors && json.errors.length > 0) {
+        errorMessage += '\n\nGraphQL Errors:';
+        json.errors.forEach((err: any) => {
+          errorMessage += `\n- ${err.message}`;
+          if (err.extensions) {
+            errorMessage += ` (${JSON.stringify(err.extensions)})`;
+          }
+        });
+      }
+      
+      throw new Error(errorMessage);
+    }
 
+    // If we couldn't parse JSON, throw an error
+    if (!json) {
+      throw new Error('Failed to parse Shopify API response as JSON');
+    }
+
+    // Check for GraphQL errors in successful HTTP responses
     if (json.errors) {
       console.error('Shopify GraphQL Errors:', json.errors);
-      throw new Error(json.errors[0].message);
+      const errorMessages = json.errors.map((err: any) => err.message).join(', ');
+      throw new Error(`Shopify GraphQL error: ${errorMessages}`);
     }
 
     return json.data;
@@ -118,7 +161,6 @@ export async function getProducts(
                   id
                   title
                   availableForSale
-                  quantityAvailable
                   price {
                     amount
                     currencyCode
@@ -205,7 +247,6 @@ export async function getProductByHandle(
               id
               title
               availableForSale
-              quantityAvailable
               price {
                 amount
                 currencyCode

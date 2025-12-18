@@ -8,16 +8,17 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     handle: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     return {
@@ -39,7 +40,8 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     notFound();

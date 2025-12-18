@@ -42,7 +42,7 @@ export interface ShopifyVariant {
   id: string;
   title: string;
   availableForSale: boolean;
-  quantityAvailable: number;
+  // quantityAvailable: number;
   price: {
     amount: string;
     currencyCode: string;
