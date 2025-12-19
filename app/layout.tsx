@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CartProvider } from "@/contexts/CartContext";
+import CartDrawer from "@/components/shopify/CartDrawer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Giant Inside | Apparel for the Resilient",
@@ -25,7 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <ErrorBoundary>
+          <CartProvider>
+            {children}
+            <CartDrawer />
+          </CartProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );
