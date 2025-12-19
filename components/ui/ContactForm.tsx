@@ -25,7 +25,7 @@ export default function ContactForm({ formType = 'contact' }: ContactFormProps) 
 
       if (!formspreeId) {
         // In development, simulate successful submission
-        // In production, this shouldn't happen if env vars are properly set
+        // In production, this shouldn&apos;t happen if env vars are properly set
         setStatus('success');
         form.reset();
         return;
@@ -216,7 +216,7 @@ export default function ContactForm({ formType = 'contact' }: ContactFormProps) 
 
       {status === 'success' && (
         <div className="p-4 bg-green-100 text-green-800 rounded-sm">
-          Thanks! We'll be in touch within 24-48 hours.
+          Thanks! We&apos;ll be in touch within 24-48 hours.
         </div>
       )}
 

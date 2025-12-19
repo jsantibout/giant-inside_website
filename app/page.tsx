@@ -47,20 +47,20 @@ export default function Home() {
                 <h2 className="font-bebas text-4xl md:text-5xl mb-6">RISE, BELIEVE, BECOME</h2>
                 <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
                   <p>
-                    More than apparel — it's a movement built on faith, resilience, and mental strength.
+                    More than apparel — it&apos;s a movement built on faith, resilience, and mental strength.
                   </p>
                   <p>
                     Created to remind you that real power starts within.
                     Wear your strength. Live your faith. Find your Giant Inside.
                   </p>
                   <p>
-                    This isn't just clothing. It's a reminder that you have a giant inside—a force that's
+                    This isn&apos;t just clothing. It&apos;s a reminder that you have a giant inside—a force that&apos;s
                     stronger than any obstacle, deeper than any fear, and more powerful than any doubt.
-                    When you wear Giant Inside, you're declaring to the world: "I refuse to quit."
+                    When you wear Giant Inside, you&apos;re declaring to the world: &quot;I refuse to quit.&quot;
                   </p>
                 </div>
                 <blockquote className="font-bebas text-2xl md:text-3xl  mt-8 italic">
-                  "Every setback is a setup for a comeback"
+                  &quot;Every setback is a setup for a comeback&quot;
                 </blockquote>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bebas text-2xl mb-3 text-gold">RESILIENCE</h3>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  Life will knock you down. But resilience isn't about avoiding the fall; it's about
+                  Life will knock you down. But resilience isn&apos;t about avoiding the fall; it&apos;s about
                   the choice to rise. Every time. No matter what.
                 </p>
               </div>
@@ -135,7 +135,7 @@ export default function Home() {
                 </div>
                 <h3 className="font-bebas text-2xl mb-3 text-gold">COMMUNITY</h3>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  You weren't meant to fight alone. Community is where strength multiplies and
+                  You weren&apos;t meant to fight alone. Community is where strength multiplies and
                   shared purpose creates movements.
                 </p>
               </div>

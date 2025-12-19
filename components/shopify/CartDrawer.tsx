@@ -8,7 +8,7 @@ import { useCart } from '@/contexts/CartContext';
 import { formatPrice } from '@/lib/shopify';
 
 export default function CartDrawer() {
-  const { cart, isCartOpen, closeCart, updateItem, removeItem, isLoading } = useCart();
+  const { cart, isCartOpen, closeCart, updateItem, removeItem, isLoading, error, clearError } = useCart();
 
   if (!isCartOpen) return null;
 
@@ -38,6 +38,22 @@ export default function CartDrawer() {
             <X className="w-6 h-6" />
           </button>
         </div>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-sm flex items-start justify-between">
+            <div className="flex-1">
+              <p className="text-red-800 text-sm">{error}</p>
+            </div>
+            <button
+              onClick={clearError}
+              className="ml-2 text-red-600 hover:text-red-800"
+              aria-label="Dismiss error"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
         {/* Cart Items */}
         <div className="flex-1 overflow-y-auto p-6">

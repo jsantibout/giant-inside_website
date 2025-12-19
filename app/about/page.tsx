@@ -48,8 +48,8 @@ export default function AboutPage() {
                   <p>
                     I come from the world of football, from junior college to the NAIA level, where pain, 
                     pressure, and performance were part of daily life. By the time I was 25, 
-                    I'd already been through two back surgeries linked to a congenital condition, dropped out of college, 
-                    and turned to alcohol and cannabis to numb what I didn't want to face.
+                    I&apos;d already been through two back surgeries linked to a congenital condition, dropped out of college, 
+                    and turned to alcohol and cannabis to numb what I didn&apos;t want to face.
                   </p>
                   <p>
                     But rock bottom revealed something greater.
@@ -58,11 +58,11 @@ export default function AboutPage() {
                     I decided to live for something bigger than myself. I committed to rebuilding, healing, and becoming the best version of the person I was meant to be.
                   </p>
                   <p>
-                    That's where Giant Inside was born.
+                    That&apos;s where Giant Inside was born.
                   </p>
                   <p>
                     This brand represents the fight to keep going when everything around you tells you to quit. 
-                    It's about believing again in yourself, in your purpose, in your faith. Every piece we design 
+                    It&apos;s about believing again in yourself, in your purpose, in your faith. Every piece we design 
                     is a reminder that your greatest power lives within. Faith fuels it. Resilience builds it. 
                     Mental health awareness gives it honesty.
                   </p>
@@ -96,11 +96,11 @@ export default function AboutPage() {
               At Giant Inside, we believe that every person carries within them an untapped strength—a
               giant waiting to be unleashed. Our mission is to create more than apparel; we create armor
               for the everyday warrior. Through premium athletic wear infused with purpose, we empower
-              individuals to embrace resilience, stand firm in faith, cultivate a champion's mindset, and
+              individuals to embrace resilience, stand firm in faith, cultivate a champion&apos;s mindset, and
               build community with others who refuse to settle for average.
             </p>
             <p className="mt-6 text-lg md:text-xl text-black leading-relaxed">
-              Whether you're an athlete pushing through the final rep, a student overcoming obstacles, or
+              Whether you&apos;re an athlete pushing through the final rep, a student overcoming obstacles, or
               someone simply refusing to let life break you—Giant Inside is your uniform for victory.
             </p>
           </div>
@@ -120,8 +120,8 @@ export default function AboutPage() {
                   <h3 className="font-bebas text-3xl md:text-4xl">RESILIENCE</h3>
                 </div>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                  Life will knock you down. That's not a question—it's a guarantee. But resilience isn't
-                  about avoiding the fall; it's about the choice to rise. Every time. No matter what. We
+                  Life will knock you down. That&apos;s not a question—it&apos;s a guarantee. But resilience isn&apos;t
+                  about avoiding the fall; it&apos;s about the choice to rise. Every time. No matter what. We
                   celebrate the grind, the struggle, and the relentless pursuit of becoming stronger than
                   yesterday.
                 </p>
@@ -137,8 +137,8 @@ export default function AboutPage() {
                 </div>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                   True strength comes from something greater than ourselves. Faith is the foundation that
-                  holds us steady when everything else shakes. It's the quiet confidence that even in the
-                  darkest moments, there's a purpose, a plan, and a power that's bigger than any challenge
+                  holds us steady when everything else shakes. It&apos;s the quiet confidence that even in the
+                  darkest moments, there&apos;s a purpose, a plan, and a power that&apos;s bigger than any challenge
                   we face.
                 </p>
               </div>
@@ -158,9 +158,9 @@ export default function AboutPage() {
                   <h3 className="font-bebas text-3xl md:text-4xl">MINDSET</h3>
                 </div>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                  Your mind is your greatest weapon or your worst enemy—you decide. Champions aren't born
-                  with perfect circumstances; they're built through disciplined thinking, positive
-                  self-talk, and an unshakeable belief that they're destined for more. Mindset is
+                  Your mind is your greatest weapon or your worst enemy—you decide. Champions aren&apos;t born
+                  with perfect circumstances; they&apos;re built through disciplined thinking, positive
+                  self-talk, and an unshakeable belief that they&apos;re destined for more. Mindset is
                   everything.
                 </p>
               </div>
@@ -174,9 +174,9 @@ export default function AboutPage() {
                   <h3 className="font-bebas text-3xl md:text-4xl">COMMUNITY</h3>
                 </div>
                 <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                  You weren't meant to fight alone. Community is where strength multiplies, where
+                  You weren&apos;t meant to fight alone. Community is where strength multiplies, where
                   encouragement fuels action, and where shared purpose creates movements. At Giant Inside,
-                  we're building a tribe of warriors who lift each other up, celebrate wins together, and
+                  we&apos;re building a tribe of warriors who lift each other up, celebrate wins together, and
                   refuse to let anyone quit.
                 </p>
               </div>

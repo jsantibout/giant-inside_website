@@ -15,6 +15,8 @@ interface CartContextType {
   cartId: string | null;
   isLoading: boolean;
   isCartOpen: boolean;
+  error: string | null;
+  clearError: () => void;
   openCart: () => void;
   closeCart: () => void;
   refreshCart: () => Promise<void>;
@@ -41,6 +43,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartId, setCartId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   // Load cart ID from localStorage on mount
@@ -65,6 +68,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     } else {
       setIsLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Helper to clear stored cart data
@@ -150,32 +154,40 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   // Add item to cart with optimistic update
   const addItem = async (merchandiseId: string, quantity: number) => {
-    const currentCartId = await ensureCart();
+    try {
+      const currentCartId = await ensureCart();
+      setError(null);
 
-    // Optimistic update - immediately open cart and show loading
-    setIsCartOpen(true);
+      // Optimistic update - immediately open cart and show loading
+      setIsCartOpen(true);
 
-    startTransition(async () => {
-      try {
-        const result = await addToCartAction(currentCartId, [{ merchandiseId, quantity }]);
+      startTransition(async () => {
+        try {
+          const result = await addToCartAction(currentCartId, [{ merchandiseId, quantity }]);
 
-        if (!result.success || !result.cart) {
-          throw new Error(result.error || 'Failed to add item to cart');
+          if (!result.success || !result.cart) {
+            throw new Error(result.error || 'Failed to add item to cart');
+          }
+
+          setCart(result.cart);
+        } catch (error) {
+          console.error('Error adding item to cart:', error);
+          setError(error instanceof Error ? error.message : 'Failed to add item to cart');
+          // Revert optimistic update by refreshing cart
+          await refreshCart();
         }
-
-        setCart(result.cart);
-      } catch (error) {
-        console.error('Error adding item to cart:', error);
-        // Revert optimistic update by refreshing cart
-        await refreshCart();
-        throw error;
-      }
-    });
+      });
+    } catch (error) {
+      console.error('Error ensuring cart:', error);
+      setError('Failed to initialize cart. Please try again.');
+    }
   };
 
   // Update cart item quantity with optimistic update
   const updateItem = async (lineId: string, quantity: number) => {
     if (!cartId || !cart) return;
+
+    setError(null);
 
     // Optimistic update - immediately update UI
     const previousCart = cart;
@@ -203,9 +215,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setCart(result.cart);
       } catch (error) {
         console.error('Error updating cart item:', error);
+        setError(error instanceof Error ? error.message : 'Failed to update cart item');
         // Revert to previous state
         setCart(previousCart);
-        throw error;
       }
     });
   };
@@ -213,6 +225,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Remove item from cart with optimistic update
   const removeItem = async (lineId: string) => {
     if (!cartId || !cart) return;
+
+    setError(null);
 
     // Optimistic update - immediately remove from UI
     const previousCart = cart;
@@ -236,13 +250,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         setCart(result.cart);
       } catch (error) {
         console.error('Error removing cart item:', error);
+        setError(error instanceof Error ? error.message : 'Failed to remove cart item');
         // Revert to previous state
         setCart(previousCart);
-        throw error;
       }
     });
   };
 
+  const clearError = () => setError(null);
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
@@ -253,6 +268,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         cartId,
         isLoading: isLoading || isPending,
         isCartOpen,
+        error,
+        clearError,
         openCart,
         closeCart,
         refreshCart,

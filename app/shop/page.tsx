@@ -49,7 +49,7 @@ export default async function ShopPage() {
                   STORE SETUP IN PROGRESS
                 </h2>
                 <p className="text-lg text-gray-600">
-                  We're currently configuring our store. Please check back soon!
+                  We&apos;re currently configuring our store. Please check back soon!
                 </p>
               </div>
             ) : products.length > 0 ? (

@@ -45,7 +45,7 @@ export default function PartnershipsPage() {
                 </div>
                 <h3 className="font-bebas text-2xl mb-3">Custom Designs</h3>
                 <p className="text-gray-600">
-                  Work directly with us to create unique designs that represent your team's identity and
+                  Work directly with us to create unique designs that represent your team&apos;s identity and
                   values.
                 </p>
               </div>
@@ -185,7 +185,7 @@ export default function PartnershipsPage() {
                 GET STARTED TODAY
               </h2>
               <p className="text-lg text-gray-600">
-                Fill out the form below and we'll be in touch within 24 hours
+                Fill out the form below and we&apos;ll be in touch within 24 hours
               </p>
             </div>
 

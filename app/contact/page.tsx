@@ -22,10 +22,10 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-charcoal opacity-80"></div>
           <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
             <h1 className="font-bebas text-5xl md:text-6xl lg:text-7xl mb-4">
-              LET'S CONNECT
+              LET&apos;S CONNECT
             </h1>
             <p className="text-xl md:text-2xl text-gray-300">
-              We'd love to hear from you
+              We&apos;d love to hear from you
             </p>
           </div>
         </section>

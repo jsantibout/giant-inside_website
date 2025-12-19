@@ -430,7 +430,7 @@ export async function createCart(
               currencyCode
             }
           }
-          lines(first: 100) {
+          lines(first: 250) {
             edges {
               node {
                 id
@@ -583,7 +583,7 @@ export async function addToCart(
               currencyCode
             }
           }
-          lines(first: 100) {
+          lines(first: 250) {
             edges {
               node {
                 id
@@ -663,7 +663,7 @@ export async function updateCart(
               currencyCode
             }
           }
-          lines(first: 100) {
+          lines(first: 250) {
             edges {
               node {
                 id
@@ -743,7 +743,7 @@ export async function removeFromCart(
               currencyCode
             }
           }
-          lines(first: 100) {
+          lines(first: 250) {
             edges {
               node {
                 id

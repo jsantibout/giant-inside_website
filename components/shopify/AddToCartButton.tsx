@@ -10,6 +10,9 @@ interface AddToCartButtonProps {
   className?: string;
 }
 
+// Duration to show success message after adding to cart (in milliseconds)
+const SUCCESS_MESSAGE_DURATION = 2000;
+
 export default function AddToCartButton({
   variantId,
   availableForSale,
@@ -27,7 +30,7 @@ export default function AddToCartButton({
     try {
       await addItem(variantId, quantity);
       setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 2000);
+      setTimeout(() => setShowSuccess(false), SUCCESS_MESSAGE_DURATION);
     } catch (error) {
       console.error('Error adding to cart:', error);
       alert('Failed to add item to cart. Please try again.');
