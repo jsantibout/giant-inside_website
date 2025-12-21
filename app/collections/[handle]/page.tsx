@@ -6,36 +6,78 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 interface CollectionPageProps {
-  params: {
+  params: Promise<{
     handle: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
 }: CollectionPageProps): Promise<Metadata> {
-  const collection = await getCollectionByHandle(params.handle);
+  const { handle } = await params;
 
-  if (!collection) {
+  try {
+    const collection = await getCollectionByHandle(handle);
+
+    if (!collection) {
+      return {
+        title: 'Collection Not Found',
+      };
+    }
+
     return {
-      title: 'Collection Not Found',
+      title: `${collection.title} | Giant Inside`,
+      description: collection.description,
+      openGraph: {
+        title: collection.title,
+        description: collection.description,
+        images: collection.image ? [{ url: collection.image.url, alt: collection.image.altText || collection.title }] : [],
+      },
+    };
+  } catch (error) {
+    console.error('Error generating collection metadata:', error);
+    return {
+      title: 'Collection | Giant Inside',
+      description: 'Shop premium athletic apparel from Giant Inside',
     };
   }
-
-  return {
-    title: `${collection.title} | Giant Inside`,
-    description: collection.description,
-    openGraph: {
-      title: collection.title,
-      description: collection.description,
-      images: collection.image ? [{ url: collection.image.url, alt: collection.image.altText || collection.title }] : [],
-    },
-  };
 }
 
 export default async function CollectionPage({ params }: CollectionPageProps) {
-  const collection = await getCollectionByHandle(params.handle);
+  const { handle } = await params;
+
+  let collection;
+  try {
+    collection = await getCollectionByHandle(handle);
+  } catch (error) {
+    console.error('Error fetching collection:', error);
+    // Return error page instead of crashing
+    return (
+      <>
+        <Header />
+        <main className="min-h-screen bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="text-center py-12">
+              <h1 className="font-bebas text-4xl md:text-5xl mb-6">
+                COLLECTION UNAVAILABLE
+              </h1>
+              <p className="text-lg text-gray-600 mb-8">
+                We&apos;re having trouble loading this collection. Please try again later.
+              </p>
+              <a
+                href="/shop"
+                className="inline-block bg-black text-white px-8 py-3 font-bold hover:bg-gray-800 transition-colors"
+              >
+                BACK TO SHOP
+              </a>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   if (!collection) {
     notFound();
