@@ -4,8 +4,18 @@ import Button from '@/components/ui/Button';
 import ProductCard from '@/components/ui/ProductCard';
 import Image from 'next/image';
 import { Target, Heart, Brain, Users } from 'lucide-react';
+import { getProducts } from '@/lib/shopify';
+import { ShopifyProduct } from '@/lib/types/shopify';
 
-export default function Home() {
+export default async function Home() {
+  // Fetch products from Shopify
+  let products: ShopifyProduct[] = [];
+  try {
+    products = await getProducts(6); // Get up to 6 products
+  } catch (error) {
+    console.error('Error fetching products for home page:', error);
+    // Continue rendering with empty products array
+  }
   return (
     <>
       <Header />
@@ -20,7 +30,7 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative z-20 text-center px-4 max-w-5xl">
-            <Image src="/images/giant-inside_logo.png" alt="Giant Inside" width={500} height={500} className="mb-6 ml-8 md:ml-12" />
+            <Image src="/images/giant-inside_logo.jpeg" alt="Giant Inside" width={500} height={500} className="mb-6 mx-auto" />
             {/* <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow">
               GIANT INSIDE
             </h1> */}
@@ -72,15 +82,37 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-bebas text-4xl md:text-5xl text-center mb-12">LATEST DROPS</h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <ProductCard name="Classic Tee" price={29.99} comingSoon={true} />
-              <ProductCard name="Performance Hoodie" price={59.99} comingSoon={true} />
-              <ProductCard name="Snapback Hat" price={24.99} comingSoon={true} />
-            </div>
+            {products.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {products.slice(0, 3).map((product) => {
+                  const firstImage = product.images.edges[0]?.node;
+                  const minPrice = parseFloat(product.priceRange.minVariantPrice.amount);
 
-            <p className="text-center mt-12 text-gray-600 italic">
-              Shopify Buy Buttons will be embedded here when products are ready
-            </p>
+                  return (
+                    <ProductCard
+                      key={product.id}
+                      name={product.title}
+                      price={minPrice}
+                      image={firstImage?.url}
+                      handle={product.handle}
+                      availableForSale={product.availableForSale}
+                    />
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <ProductCard name="Classic Tee" price={29.99} comingSoon={true} />
+                <ProductCard name="Performance Hoodie" price={59.99} comingSoon={true} />
+                <ProductCard name="Snapback Hat" price={24.99} comingSoon={true} />
+              </div>
+            )}
+
+            <div className="text-center mt-12">
+              <Button href="/shop" variant="primary" className="text-base px-8 py-3">
+                VIEW ALL PRODUCTS
+              </Button>
+            </div>
           </div>
         </section>
 
