@@ -48,8 +48,15 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Image */}
-              <div className="aspect-square bg-gray-300 rounded-sm flex items-center justify-center">
-                <span className="font-bebas text-4xl text-gray-500">ATHLETE IMAGE</span>
+              <div className="aspect-[3/4] rounded-sm overflow-hidden">
+                <Image
+                  src="/images/Giant-inside_tshirt-1.jpeg"
+                  alt="Athlete"
+                  width={600}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: '50% 15%' }}
+                />
               </div>
 
               {/* Text Content */}

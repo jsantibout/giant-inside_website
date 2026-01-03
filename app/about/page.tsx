@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 import { Target, Heart, Brain, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -30,9 +31,15 @@ export default function AboutPage() {
         <section className="bg-white py-16 md:py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Founder Photo Placeholder */}
-              <div className="aspect-square bg-gray-300 rounded-sm flex items-center justify-center">
-                <span className="font-bebas text-4xl text-gray-500">FOUNDER PHOTO</span>
+              {/* Founder Photo */}
+              <div className="aspect-[3/4] rounded-sm overflow-hidden">
+                <Image 
+                  src="/images/founder-image.PNG" 
+                  alt="Founder" 
+                  width={600} 
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Story Content */}
