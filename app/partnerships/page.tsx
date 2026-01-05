@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ui/ContactForm';
-import { Palette, DollarSign, CheckCircle, Clock, School, Users, Heart, Building } from 'lucide-react';
+import { Palette, DollarSign, CheckCircle, Clock, School, Users, Heart, Building, Dumbbell } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Team Partnerships | Giant Inside',
@@ -93,7 +93,7 @@ export default function PartnershipsPage() {
               WHO WE WORK WITH
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {/* Youth Sports */}
               <div className="bg-white p-8 rounded-sm text-center hover:shadow-lg transition-shadow">
                 <Users size={48} className="text-gold mx-auto mb-4" />
@@ -109,6 +109,15 @@ export default function PartnershipsPage() {
                 <h3 className="font-bebas text-xl mb-2">Schools & Athletic Programs</h3>
                 <p className="text-sm text-gray-600">
                   High schools, colleges, and athletic departments
+                </p>
+              </div>
+
+              {/* Gyms */}
+              <div className="bg-white p-8 rounded-sm text-center hover:shadow-lg transition-shadow">
+                <Dumbbell size={48} className="text-gold mx-auto mb-4" />
+                <h3 className="font-bebas text-xl mb-2">Gyms & Fitness Centers</h3>
+                <p className="text-sm text-gray-600">
+                  CrossFit boxes, training facilities, and fitness studios
                 </p>
               </div>
 
