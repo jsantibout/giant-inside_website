@@ -50,7 +50,7 @@ export default function ContactPage() {
                         href=""
                         className="text-gray-600 hover:text-gold transition-colors"
                       >
-                        email@example.com
+                        support@giant-inside.com
                       </a>
                     </div>
                   </div>
@@ -74,7 +74,7 @@ export default function ContactPage() {
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-start space-x-4">
+                  {/* <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <MapPin size={24} className="text-gold" />
                     </div>
@@ -82,10 +82,10 @@ export default function ContactPage() {
                       <h3 className="font-montserrat font-bold mb-1">Location</h3>
                       <p className="text-gray-600">Based in [City, State]</p>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Response Time */}
-                  <div className="flex items-start space-x-4">
+                  {/* <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       <Clock size={24} className="text-gold" />
                     </div>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                       <h3 className="font-montserrat font-bold mb-1">Response Time</h3>
                       <p className="text-gray-600">Within 24-48 hours</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Social CTA */}

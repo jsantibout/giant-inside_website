@@ -17,26 +17,26 @@ export default function ContactForm({ formType = 'contact' }: ContactFormProps) 
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    try {
-      // In production, replace with actual Formspree endpoint
-      const formspreeId = formType === 'partnership'
-        ? process.env.NEXT_PUBLIC_FORMSPREE_PARTNERSHIPS_FORM
-        : process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM;
-
-      if (!formspreeId) {
-        // In development, simulate successful submission
-        // In production, this shouldn&apos;t happen if env vars are properly set
-        setStatus('success');
-        form.reset();
-        return;
+    // Convert FormData to JSON object
+    const formData: Record<string, string> = {};
+    data.forEach((value, key) => {
+      if (key !== '_gotcha') { // Exclude honeypot field
+        formData[key] = value.toString();
       }
+    });
 
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+    // Add form type to help the API route
+    formData.formType = formType;
+
+    console.log('Submitting form data:', formData);
+
+    try {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: data,
         headers: {
-          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {

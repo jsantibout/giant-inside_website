@@ -68,7 +68,7 @@ export default function Footer() {
                 className="flex items-center space-x-2 text-gray-400 hover:text-gold transition-colors text-sm"
               >
                 <Mail size={18} />
-                <span>email@example.com</span>
+                <span>support@giant-inside.com</span>
               </a>
             </div>
           </div>
