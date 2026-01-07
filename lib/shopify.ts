@@ -31,11 +31,13 @@ async function shopifyFetch<T>({
   variables = {},
   cache = 'force-cache',
   tags,
+  revalidate,
 }: {
   query: string;
   variables?: Record<string, any>;
   cache?: RequestCache;
   tags?: string[];
+  revalidate?: number | false;
 }): Promise<T> {
   try {
     const env = getShopifyConfig();
@@ -49,7 +51,7 @@ async function shopifyFetch<T>({
       },
       body: JSON.stringify({ query, variables }),
       cache,
-      ...(tags && { next: { tags } }),
+      ...(tags || revalidate !== undefined ? { next: { ...(tags && { tags }), ...(revalidate !== undefined && { revalidate }) } } : {}),
     });
 
     // Try to parse response body (may fail for non-JSON error responses)
@@ -196,6 +198,7 @@ export async function getProducts(
     variables: { limit },
     cache: 'force-cache',
     tags: ['products'],
+    revalidate: 3600, // Revalidate every hour
   });
 
   return data.products.edges.map((edge) => edge.node);
@@ -278,6 +281,7 @@ export async function getProductByHandle(
     variables: { handle },
     cache: 'force-cache',
     tags: ['products', `product-${handle}`],
+    revalidate: 3600, // Revalidate every hour
   });
 
   return data.productByHandle;
@@ -319,6 +323,7 @@ export async function getCollections(
     variables: { limit },
     cache: 'force-cache',
     tags: ['collections'],
+    revalidate: 3600, // Revalidate every hour
   });
 
   return data.collections.edges.map((edge) => edge.node);
@@ -398,6 +403,7 @@ export async function getCollectionByHandle(
     variables: { handle, limit },
     cache: 'force-cache',
     tags: ['collections', `collection-${handle}`],
+    revalidate: 3600, // Revalidate every hour
   });
 
   return data.collectionByHandle;

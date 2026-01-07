@@ -93,13 +93,15 @@ export default async function Home() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {products.slice(0, 3).map((product) => {
                   const firstImage = product.images.edges[0]?.node;
-                  const minPrice = parseFloat(product.priceRange.minVariantPrice.amount);
+                  // Use the first available variant's price instead of minVariantPrice
+                  const firstVariant = product.variants.edges[0]?.node;
+                  const price = firstVariant ? parseFloat(firstVariant.price.amount) : parseFloat(product.priceRange.minVariantPrice.amount);
 
                   return (
                     <ProductCard
                       key={product.id}
                       name={product.title}
-                      price={minPrice}
+                      price={price}
                       image={firstImage?.url}
                       handle={product.handle}
                       availableForSale={product.availableForSale}
