@@ -49,44 +49,49 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
                   <p>
-                    Giant Inside is a faith-driven apparel brand empowering people to overcome adversity,
-                    raise mental health awareness, and live with resilience.
+                    Giant Inside is a purpose-driven apparel brand created to empower people to overcome adversity, 
+                    support mental health awareness, and live with resilience.
                   </p>
                   <p>
-                    I come from the world of football, from junior college to the NAIA level, where pain, 
-                    pressure, and performance were part of daily life. By the time I was 25, 
-                    I&apos;d already been through two back surgeries linked to a congenital condition, dropped out of college, 
-                    and turned to alcohol and cannabis to numb what I didn&apos;t want to face.
+                    My background is rooted in football, from junior college to the NAIA level, where pain, pressure, and 
+                    and performance were part of daily life. By my mid-twenties, I had already faced two back surgeries 
+                    linked to a congenital condition, stepped away from college, and struggled with unhealthy ways of coping 
+                    during a difficult season.
                   </p>
                   <p>
-                    But rock bottom revealed something greater.
+                    That breaking point became a turning point..
                   </p>
                   <p>
-                    I decided to live for something bigger than myself. I committed to rebuilding, healing, and becoming the best version of the person I was meant to be.
+                    I made the decision to rebuild — mentally, physically, and spiritually — and to live with intention and purpose. 
+                    That commitment to growth is where Giant Inside was born.
                   </p>
                   <p>
-                    That&apos;s where Giant Inside was born.
+                    This brand represents the fight to keep going when everything around you tells you to quit. It’s about rediscovering 
+                    belief — in yourself, in your strength, and in what drives you forward. Every piece we design is meant to serve as a 
+                    reminder that your greatest power lives within you.
                   </p>
                   <p>
-                    This brand represents the fight to keep going when everything around you tells you to quit. 
-                    It&apos;s about believing again in yourself, in your purpose, in your faith. Every piece we design 
-                    is a reminder that your greatest power lives within. Faith fuels it. Resilience builds it. 
-                    Mental health awareness gives it honesty.
+                    For some, that strength is fueled by faith.
                   </p>
                   <p>
-                    Giant Inside isn’t just for athletes, it’s for anyone who’s ever faced a battle, visible or invisible, and decided to rise again.
+                    For others, it comes from discipline, mindset, community, or purpose.
                   </p>
                   <p>
-                    Because this isn’t about the game, it’s about the fight.
+                    Giant Inside isn’t just for athletes — it’s for anyone who has faced a battle, visible or invisible, and chosen to 
+                    rise anyway.                  
                   </p>
                   <p>
-                    It’s about life.                   
+                    Because this isn’t about the game.
                   </p>
-
                   <p>
-                    Wear your strength. Live your faith. Find your Giant Inside.
+                    It's about the fight. It's about life.
                   </p>
-                
+                  <p>
+                    It's about life.
+                  </p>
+                  <p>
+                    Wear your strength. Find your purpose. Discover your Giant Inside.
+                  </p>
                 </div>
               </div>
             </div>
