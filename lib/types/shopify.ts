@@ -34,7 +34,7 @@ export interface ShopifyProduct {
   };
   availableForSale: boolean;
   tags: string[];
-  vendor: string;
+  // vendor: string;
   productType: string;
 }
 

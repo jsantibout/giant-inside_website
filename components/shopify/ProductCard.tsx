@@ -75,10 +75,6 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           )}
         </div>
-
-        {product.vendor && (
-          <p className="text-sm text-gray-500 mt-1">{product.vendor}</p>
-        )}
       </div>
     </Link>
   );
