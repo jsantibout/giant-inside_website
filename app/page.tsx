@@ -34,10 +34,10 @@ export default async function Home() {
             {/* <h1 className="font-bebas text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow">
               GIANT INSIDE
             </h1> */}
-            <h1 className="font-montserrat text-2xl md:text-3xl lg:text-4xl text-gold mb-10">
+            <h1 className="font-montserrat text-2xl md:text-3xl lg:text-4xl text-gold mb-4">
               Built for those who rise after every setback
             </h1>
-            <p className="font-montserrat text-base md:text-lg text-white mb-8">
+            <p className="font-montserrat text-base md:text-lg text-white mb-10">
               For the athletes grinding in silence, fighting through setbacks, and refusing to quit.
             </p>
             <Button href="/shop" variant="tertiary" className="text-lg px-12 py-4">
