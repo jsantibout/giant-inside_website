@@ -37,6 +37,9 @@ export default async function Home() {
             <h1 className="font-montserrat text-2xl md:text-3xl lg:text-4xl text-gold mb-10">
               Built for those who rise after every setback
             </h1>
+            <p className="font-montserrat text-base md:text-lg text-white mb-8">
+              For the athletes grinding in silence, fighting through setbacks, and refusing to quit.
+            </p>
             <Button href="/shop" variant="tertiary" className="text-lg px-12 py-4">
               EXPLORE THE BRAND
             </Button>
