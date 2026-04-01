@@ -108,6 +108,7 @@ export default async function Home() {
                       image={firstImage?.url}
                       handle={product.handle}
                       availableForSale={product.availableForSale}
+                      comingSoon={true}
                     />
                   );
                 })}

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { ShopifyProduct } from '@/lib/types/shopify';
 import { formatPrice } from '@/lib/shopify';
@@ -25,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isOnSale = compareAtPrice && parseFloat(firstVariant.compareAtPrice!.amount) > parseFloat(firstVariant.price.amount);
 
   return (
-    <Link href={`/products/${product.handle}`} className="group">
+    <div className="group">
       <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 mb-4">
         {firstImage ? (
           <Image
@@ -47,23 +46,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             SALE
           </div>
         )}
-
-        {/* Out of Stock Badge */}
-        {!product.availableForSale && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <span className="bg-white text-black px-4 py-2 font-bold rounded">
-              OUT OF STOCK
-            </span>
-          </div>
-        )}
       </div>
 
       <div>
-        <h3 className="font-montserrat font-bold text-lg mb-2 group-hover:text-purple-600 transition-colors line-clamp-2">
+        <h3 className="font-montserrat font-bold text-lg mb-2 line-clamp-2">
           {product.title}
         </h3>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mb-3">
           {compareAtPrice && (
             <span className="text-gray-500 line-through text-sm">
               {compareAtPrice}
@@ -75,7 +65,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           )}
         </div>
+
+        <button
+          disabled
+          className="w-full bg-gray-200 text-gray-500 px-4 py-3 font-montserrat font-bold uppercase text-sm cursor-not-allowed rounded-sm"
+        >
+          Orders Opening Soon
+        </button>
       </div>
-    </Link>
+    </div>
   );
 }
